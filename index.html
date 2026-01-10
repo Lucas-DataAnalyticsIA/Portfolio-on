@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfolio - Lucas da Silva Oliveira</title>
+    <link rel="shortcut icon" href="image/monitor.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo:hover {
+            color: #764ba2;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* Seção Hero */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: calc(100vh - 70px);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-image-box {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            font-size: 6rem;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 50%;
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Seções Principais */
+        section {
+            padding: 5rem 2rem;
+            scroll-behavior: smooth;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 1rem auto 0;
+        }
+
+        /* Seção Sobre */
+        #sobre {
+            background: #f9f9f9;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .about-box:hover {
+            transform: translateX(10px);
+        }
+
+        .about-box-icon {
+            font-size: 2rem;
+            min-width: 50px;
+        }
+
+        /* Seção Habilidades */
+        #habilidades {
+            background: #fff;
+        }
+
+        .skills-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .skill-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Seção Projetos */
+        #projetos {
+            background: #f9f9f9;
+        }
+
+        .projects-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Seção Contato */
+        #contato {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        #contato .section-title {
+            color: #fff;
+        }
+
+        #contato .section-title::after {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-method a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-method a:hover {
+            color: #ffd700;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 2rem;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+                padding: 0;
+            }
+
+            .nav-menu.active {
+                max-height: 400px;
+                padding: 1rem 0;
+            }
+
+            .nav-menu a {
+                padding: 1rem 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header e Navegação -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Lucas da Silva Oliveira</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio">Página Inicial</a></li>
+                <li><a href="#sobre">Sobre mim</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Meus Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bem-vindo(a)!</h1>
+            <p class="subtitle">Professor e Pesquisador na área da saúde</p>
+            <p>
+                Sou apaixonado por criar soluções digitais inovadoras e impactantes dentro da área da saúde. 
+                Com experiência em Imunologia, Microbiologia, Hematologia e desenvolvimento web, trabalho para transformar 
+                ideias em realidade através de código limpo e design intuitivo.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projetos" class="btn btn-primary">Ver Meus Projetos</a>
+                <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-box">
+                <img src="image/Foto-perfil.jpg" alt="Foto de perfil" class="profile-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Mim -->
+    <section id="sobre">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Quem sou eu?</h3>
+                <p>
+                    Sou um Pesquisador e desenvolvedor apaixonado pela saúde e tecnologia com foco em criar 
+                    experiências digitais excepcionais. Tenho dedicado meu tempo a dominar as 
+                    tecnologias modernas e as melhores práticas de desenvolvimento.
+                </p>
+                <p>
+                    Minha jornada no desenvolvimento começou com curiosidade e se transformou 
+                    em uma carreira gratificante onde posso ajudar empresas e pessoas a 
+                    alcançar seus objetivos através da tecnologia.
+                </p>
+                <div class="about-box">
+                    <div class="about-box-icon">🎯</div>
+                    <div>
+                        <strong>Minha Missão:</strong> Criar soluções tecnológicas que façam diferença
+                    </div>
+                </div>
+                <div class="about-box">
+                    <div class="about-box-icon">🚀</div>
+                    <div>
+                        <strong>Objetivo:</strong> Continuar aprendendo e crescendo como Pesquisador e desenvolvedor
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-box">
+                    <img src="image/Foto-perfil.jpg" alt="Foto de perfil - Lucas Oliveira" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Habilidades -->
+    <section id="habilidades">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>💻Programação</h3>
+                <ul>
+                    <li>HTML5 & CSS3</li>
+                    <li>Python</li>
+                    <li>R</li>
+                 </ul>
+            </div>
+            <div class="skill-card">
+                <h3>🧬Ciências Biológicas</h3>
+                <ul>
+                    <li>Imunologia</li>
+                    <li>Hematologia</li>
+                    <li>Microbiologia</li>
+                    <li>Genética e Biomol</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>⚙️Análise de dados</h3>
+                <ul>
+                    <li>Power BI</li>
+                    <li>Inteligência Artifical</li>
+                    <li>Machine Learning</li>
+                    <li>Bioestatistica</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projetos">
+        <h2 class="section-title">Meus Projetos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">⚙️</div>
+                <div class="project-content">
+                    <h3>Dashboard de produção</h3>
+                    <p>
+                        Uma ferramenta poderosa na área de produção para otimizar o trabalho com dados e tomar decisões mais precisas baseadas em estrategias de produção.
+                    </p>
+                    <div class="project-tags">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNGNiZjliM2MtNmUxOC00ODliLWFlZTMtY2QyZjBjZDAxMWI5IiwidCI6IjBhMTNmN2ZiLTM2OGUtNGQ0OC1hYjI2LTc5Y2FlMzBkNDA3ZCJ9" class="tag">Power BI</a>                       
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <h3>Dashboard de RH</h3>
+                    <p>
+                        Uma ferramenta de análise de contratações de funcionários da área de RH,
+                        abordandos os principais insigths para tomada de decisões e feedback geral
+                    </p>
+                    <div class="project-tags">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiODBhOGM0ZGMtZDlkOS00YTg4LWIwMWEtNWZiNGJkMzEzOGJkIiwidCI6IjBhMTNmN2ZiLTM2OGUtNGQ0OC1hYjI2LTc5Y2FlMzBkNDA3ZCJ9&pageName=3688d3bf8305d9c0e0cd" class="tag">Power BI</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">💬</div>
+                <div class="project-content">
+                    <h3>Dashboard de Vendas</h3>
+                    <p>
+                        Utilize uma ferramento que auxilie na tomada de decisões e 
+                        aplicação de estratégias aplicada a área de vendas na análise de dados. 
+                    </p>
+                    <div class="project-tags">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMWNjYzlkNDUtMjhmZC00NGYwLWJmMGUtYWFhZGU2OGYwMjJmIiwidCI6IjBhMTNmN2ZiLTM2OGUtNGQ0OC1hYjI2LTc5Y2FlMzBkNDA3ZCJ9">Power BI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato">
+        <h2 class="section-title">Contato</h2>
+        <div class="contact-content">
+            <p>
+                Adoraria ouvir de você! Se você tem uma pergunta ou proposta, 
+                não hesite em entrar em contato comigo.
+            </p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3>📧 Currículo Lattes</h3>
+                    <a href="https://lattes.cnpq.br/4462322428308549">Veja meu curriculo Lattes</a>
+                </div>
+                <div class="contact-method">
+                    <h3>💼 LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/lucas-oliveira-999b7819b" target="_blank">Visite meu LinkedIn</a>
+                </div>
+                <div class="contact-method">
+                    <h3>🐙 GitHub</h3>
+                    <a href="https://github.com/LucasSkywalker2" target="_blank">Meu GitHub</a>
+                </div>
+            </div>
+            <a href="https://wa.me/5592985582702" class="btn btn-secondary">Entrar em contato</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Meu Portfolio. Desenvolvido por mim.</p>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll suave para seções
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Adicionar classe ativa ao nav quando fazendo scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+            }
+        });
+
+        // Efeito de animação ao fazer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card, .contact-method').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
