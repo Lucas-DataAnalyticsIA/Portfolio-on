@@ -432,6 +432,234 @@
             text-align: center;
         }
 
+        /* Seção Experiência Profissional */
+        #experiencia {
+            background: #fff;
+        }
+
+        /* Seção Soft Skills */
+        #softskills {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+        }
+
+        .softskills-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .softskill-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #667eea;
+        }
+
+        .softskill-card:hover {
+            transform: translateY(-10px);
+            border-top-color: #764ba2;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .softskill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .softskill-card h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .softskill-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .experience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-left: 4px solid #667eea;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover {
+            border-left-color: #764ba2;
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .experience-period {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-description {
+            color: #555;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Seção Artigos e Iniciações Científicas */
+        #artigos {
+            background: #f9f9f9;
+        }
+
+        .articles-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .article-section {
+            margin-bottom: 3rem;
+        }
+
+        .article-section-title {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .article-item {
+            background: #fff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid #764ba2;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .article-item-title {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .article-item-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Seção Formação Acadêmica */
+        #formacao {
+            background: #fff;
+        }
+
+        .education-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid #667eea;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .education-item:hover {
+            border-top-color: #764ba2;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .education-degree {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-institution {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-period {
+            display: inline-block;
+            background: #667eea;
+            color: #fff;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .education-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .education-highlight {
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent);
+            border-left: 3px solid #764ba2;
+            padding: 0.8rem 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            color: #555;
+            font-style: italic;
+        }
+
         #contato .section-title {
             color: #fff;
         }
@@ -580,6 +808,9 @@
                 <li><a href="#inicio">Página Inicial</a></li>
                 <li><a href="#sobre">Sobre mim</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#softskills">Soft Skills</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#formacao">Formação</a></li>
                 <li><a href="#projetos">Meus Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -678,6 +909,209 @@
                     <li>Machine Learning</li>
                     <li>Bioestatistica</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Soft Skills -->
+    <section id="softskills">
+        <h2 class="section-title">💡 Soft Skills</h2>
+        <div class="softskills-grid">
+            <div class="softskill-card">
+                <span class="softskill-icon">🤝</span>
+                <h3>Comunicação</h3>
+                <p class="softskill-description">
+                    Excelente capacidade de se comunicar de forma clara e objetiva com diferentes públicos, desde colegas técnicos até stakeholders não técnicos.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">🎯</span>
+                <h3>Liderança</h3>
+                <p class="softskill-description">
+                    Experiência em liderar equipes, orientar estudantes e inspirar indivíduos a alcançarem seus objetivos através de metodologias efetivas.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">🧠</span>
+                <h3>Pensamento Crítico</h3>
+                <p class="softskill-description">
+                    Capacidade de análise profunda, avaliação crítica de informações e tomada de decisões baseadas em evidências científicas.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">⚙️</span>
+                <h3>Adaptabilidade</h3>
+                <p class="softskill-description">
+                    Flexibilidade para trabalhar em diferentes contextos e ambientes, desde pesquisa acadêmica até ambiente corporativo.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">🤲</span>
+                <h3>Colaboração</h3>
+                <p class="softskill-description">
+                    Trabalho efetivo em equipes multidisciplinares, respeitando diferentes perspectivas e contribuindo para objetivos comuns.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">📚</span>
+                <h3>Aprendizado Contínuo</h3>
+                <p class="softskill-description">
+                    Paixão por aprender e se atualizar constantemente sobre novas tecnologias, metodologias e tendências na área da saúde.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">⏱️</span>
+                <h3>Gestão de Tempo</h3>
+                <p class="softskill-description">
+                    Capacidade de organizar prioridades, cumprir prazos e gerenciar múltiplos projetos simultaneamente com eficiência.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">💪</span>
+                <h3>Resiliência</h3>
+                <p class="softskill-description">
+                    Determinação para superar desafios, aprender com fracassos e manter foco em objetivos a longo prazo.
+                </p>
+            </div>
+
+            <div class="softskill-card">
+                <span class="softskill-icon">🎓</span>
+                <h3>Mentoria e Ensino</h3>
+                <p class="softskill-description">
+                    Capacidade de transmitir conhecimentos de forma clara e efetiva, orientando e desenvolvendo talentos através de metodologias pedagógicas inovadoras.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Experiência Profissional -->
+    <section id="experiencia">
+        <h2 class="section-title">💼 Experiência Profissional</h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Professor</div>
+                        <div class="experience-company">CETAM</div>
+                    </div>
+                    <div class="experience-period">2024 – 2025</div>
+                </div>
+                <div class="experience-description">
+                    Disciplinas ministradas em Imunologia, Microbiologia, Ciências Biológicas, Análises clínicas e metodologia empregada a criação de relatórios.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Técnico em Informática</div>
+                        <div class="experience-company">WOMP/Telecom</div>
+                    </div>
+                    <div class="experience-period">2022 – 2023</div>
+                </div>
+                <div class="experience-description">
+                    Informática, redes de computadores, internet, pacote office, software e hardware.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Artigos e Iniciações Científicas -->
+    <section id="artigos">
+        <h2 class="section-title">📄 Artigos & Pesquisa Científica</h2>
+        <div class="articles-container">
+            <!-- Artigos Publicados -->
+            <div class="article-section">
+                <h3 class="article-section-title">📰 Artigos Publicados</h3>
+                <div class="article-item">
+                    <div class="article-item-title">Publicações em Periódicos e Simpósios</div>
+                    <div class="article-item-text">
+                        Publicações em periódicos e simpósios nas áreas de Imunologia, Hematologia e Biotecnologia, com foco em resposta imune e técnicas laboratoriais.
+                    </div>
+                </div>
+                <div class="article-item">
+                    <div class="article-item-title">Trabalhos Apresentados em Congressos</div>
+                    <div class="article-item-text">
+                        Trabalhos apresentados em congressos nacionais e internacionais sobre resposta imune celular e humoral aplicado a doenças como COVID-19 e Doença Falciforme.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iniciações Científicas -->
+            <div class="article-section">
+                <h3 class="article-section-title">🔬 Iniciações Científicas</h3>
+                <div class="article-item">
+                    <div class="article-item-title">Estudos sobre Resposta Imune de Células T em COVID-19</div>
+                    <div class="article-item-text">
+                        <strong>PAIC/HEMOAM | 2020 – 2021</strong><br>
+                        Pesquisa focada em estudos sobre resposta imune de células T em pacientes que tiveram COVID-19, investigando mecanismos de resposta celular e imunológica.
+                    </div>
+                </div>
+                <div class="article-item">
+                    <div class="article-item-title">Parâmetros Hematológicos e Resposta Imune em COVID-19</div>
+                    <div class="article-item-text">
+                        <strong>PAIC/HEMOAM | 2019 – 2020</strong><br>
+                        Pesquisa em parâmetros hematológicos e resposta imune humoral de pacientes que tiveram COVID-19, analisando biomarcadores e respostas sorológicas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Formação Acadêmica -->
+    <section id="formacao">
+        <h2 class="section-title">🎓 Formação Acadêmica & Certificações</h2>
+        <div class="education-container">
+            <div class="education-item">
+                <div class="education-degree">Doutorado em Imunologia Básica e Aplicada</div>
+                <div class="education-institution">PPGIBA/UFAM</div>
+                <div class="education-period">2025 – Atual</div>
+                <div class="education-description">
+                    Pesquisas com foco em abordagens integradas utilizando inteligência artificial e algoritmos de machine learning aplicado a dados de pacientes com doença falciforme.
+                </div>
+                <div class="education-highlight">
+                    <strong>Foco:</strong> IA aplicada a imunologia e doenças hematológicas
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Especialista em Microbiologia e Imunologia</div>
+                <div class="education-institution">FAMETRO</div>
+                <div class="education-period">2024 – 2026</div>
+                <div class="education-description">
+                    Especialização em técnicas avançadas de microbiologia e imunologia, aprofundando conhecimentos em diagnósticos laboratoriais e análises immunológicas.
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Mestrado em Biotecnologia</div>
+                <div class="education-institution">PPGBIOTEC/UFAM</div>
+                <div class="education-period">2023 – 2025</div>
+                <div class="education-description">
+                    Pesquisa aplicada em Imunologia, Hematologia e Genética, com ênfase em técnicas laboratoriais e análise de dados.
+                </div>
+                <div class="education-highlight">
+                    <strong>Áreas:</strong> Imunologia • Hematologia • Genética
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Biomédico Analista Clínico</div>
+                <div class="education-institution">UNINORTE</div>
+                <div class="education-period">2018 – 2022</div>
+                <div class="education-description">
+                    Foco nas principais áreas dentro das análises clínicas, com formação sólida em metodologias e técnicas diagnósticas.
+                </div>
+                <div class="education-highlight">
+                    <strong>Especialidades:</strong> Hematologia • Imunologia • Parasitologia • Urinálise • Microbiologia
+                </div>
             </div>
         </div>
     </section>
@@ -818,7 +1252,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.skill-card, .project-card, .contact-method').forEach(el => {
+        document.querySelectorAll('.skill-card, .softskill-card, .project-card, .contact-method, .experience-item, .article-item, .education-item').forEach(el => {
             el.style.opacity = '0';
             observer.observe(el);
         });
